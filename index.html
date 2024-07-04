@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Web App</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot"></div>
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '6589e1630b24e2de29869f3d' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production'
+                });
+
+                // Attempt to open the chatbox automatically
+                setTimeout(function() {
+                    // Assuming 'window.voiceflow.chat.open' is a method to open the chat
+                    // Check with Voiceflow documentation or support for exact details
+                    if (window.voiceflow && window.voiceflow.chat && window.voiceflow.chat.open) {
+                        window.voiceflow.chat.open();
+                    }
+                }, 1000); // Adjust the delay as needed
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+            v.type = "text/javascript"; 
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
+</body>
+</html>
